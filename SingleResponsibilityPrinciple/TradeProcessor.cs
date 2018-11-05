@@ -22,5 +22,6 @@ namespace SingleResponsibilityPrinciple
         private readonly ITradeDataProvider tradeDataProvider;
         private readonly ITradeParser tradeParser;
         private readonly ITradeStorage tradeStorage;
+
     }
 }
