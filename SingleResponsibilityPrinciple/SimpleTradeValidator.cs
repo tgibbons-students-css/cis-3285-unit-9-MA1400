@@ -14,6 +14,7 @@ namespace SingleResponsibilityPrinciple
 
         public bool Validate(string[] tradeData)
         {
+
             if (tradeData.Length != 3)
             {
                 logger.LogWarning("Line malformed. Only {0} field(s) found.", tradeData.Length);
@@ -27,9 +28,14 @@ namespace SingleResponsibilityPrinciple
             }
 
             int tradeAmount;
+          
             if (!int.TryParse(tradeData[1], out tradeAmount))
             {
                 logger.LogWarning("Trade not a valid integer: '{0}'", tradeData[1]);
+                return false;
+            }
+            if (tradeAmount < 1000 || tradeAmount > 100000) 
+            {
                 return false;
             }
 
