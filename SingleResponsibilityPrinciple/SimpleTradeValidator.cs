@@ -31,11 +31,12 @@ namespace SingleResponsibilityPrinciple
           
             if (!int.TryParse(tradeData[1], out tradeAmount))
             {
-                logger.LogWarning("Trade not a valid integer: '{0}'", tradeData[1]);
+                
                 return false;
             }
             if (tradeAmount < 1000 || tradeAmount > 100000) 
             {
+                logger.LogMessage("WARN", "Trade price on line {0} not a valid Trade: '{1}'", tradeData[0]);
                 return false;
             }
 
